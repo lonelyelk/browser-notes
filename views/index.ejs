@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="/favicon.gif" rel="icon" type="image/gif" />
+		<title>Notes</title>
+    <script src="/javascripts/jquery-2.0.3.min.js" ></script>
+    <script type="text/javascript">
+    	function save(b, e) {
+        $.ajax({
+          type: 'POST',
+          data: JSON.stringify({note: b.innerHTML}),
+            contentType: 'application/json',
+            url: 'http://localhost:4444/save',
+            success: function(data) {
+              console.log(JSON.stringify(data));
+            }
+        });
+    	}
+		</script>    
+	</head>
+	<body contenteditable="true" style="font-size:2rem;font-family:monaco;line-height:1.4;max-width:100rem;margin:0 auto;padding:4rem;" oninput="save(this,event);">
+		<%- content -%>
+	</body>
+</html>
