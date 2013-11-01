@@ -30,7 +30,7 @@ server.post("/save", function(req, res){
 	var noteFile = fs.openSync(notePath, 'w');
 	var buf = new Buffer(obj.toString());
 	fs.writeSync(noteFile, buf, 0, buf.length);
-	console.log(JSON.stringify(req.body));
+//	console.log(JSON.stringify(req.body));
 	res.send("ok");
 })
 
